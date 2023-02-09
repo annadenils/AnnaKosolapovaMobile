@@ -1,14 +1,16 @@
 package scenarios;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+import pageObjects.WebPageObject;
 import setup.BaseTest;
 
 public class webMobileTests extends BaseTest {
 
-    @Test(groups = {"web"}, description = "Make sure that we've opened IANA homepage")
+    @Test(description = "Make sure that we've opened IANA homepage")
     public void simpleWebTest() throws InterruptedException {
         getDriver().get("http://iana.org"); // open IANA homepage
 
@@ -22,6 +24,18 @@ public class webMobileTests extends BaseTest {
 
         // Log that test finished
         System.out.println("Site opening done");
+    }
+
+    @Test(groups = "web", description = "Web test case")
+    public void googleWebTest() {
+        getDriver().get("http://google.com");
+        new WebDriverWait(getDriver(), 10).until(
+                wd -> ((JavascriptExecutor) wd).executeScript("return document.readyState").equals("complete")
+        );
+        WebPageObject webPageObject = new WebPageObject(getDriver());
+        webPageObject.getFieldSearch().sendKeys("EPAM" + Keys.ENTER);
+        webPageObject.getResultSearch().click();
+        assert ((WebDriver) getDriver()).getTitle().contains("epam");
     }
 
 }

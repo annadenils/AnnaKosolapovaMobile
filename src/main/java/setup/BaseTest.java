@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest implements IDriver {
 
     private static AppiumDriver appiumDriver; // singleton
-    IPageObject po;
+    static IPageObject po;
 
     @Override
     public AppiumDriver getDriver() { return appiumDriver; }
@@ -28,7 +28,6 @@ public class BaseTest implements IDriver {
         System.out.println("Before: app type - "+appType);
         setAppiumDriver(platformName, deviceName, browserName, app);
         setPageObject(appType, appiumDriver);
-
     }
 
     @AfterSuite(alwaysRun = true)
