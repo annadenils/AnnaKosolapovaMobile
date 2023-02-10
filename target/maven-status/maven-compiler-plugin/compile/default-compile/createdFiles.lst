@@ -1,6 +1,0 @@
-setup/IPageObject.class
-pageObjects/PageObject.class
-pageObjects/NativePageObject.class
-setup/BaseTest.class
-setup/IDriver.class
-pageObjects/WebPageObject.class
