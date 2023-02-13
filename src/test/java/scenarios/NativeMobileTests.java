@@ -4,8 +4,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import setup.BaseTest;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 public class NativeMobileTests extends BaseTest {
     String email = System.getenv("email");
     String userName = System.getenv("userName");

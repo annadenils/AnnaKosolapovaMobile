@@ -3,7 +3,6 @@ package pageObjects;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 import setup.IPageObject;
-
 import java.lang.reflect.Field;
 
 public class PageObject implements IPageObject {
