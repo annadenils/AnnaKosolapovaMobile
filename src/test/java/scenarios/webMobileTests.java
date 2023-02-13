@@ -4,6 +4,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObjects.WebPageObject;
 import setup.BaseTest;
@@ -34,8 +35,6 @@ public class webMobileTests extends BaseTest {
         );
         WebPageObject webPageObject = new WebPageObject(getDriver());
         webPageObject.getFieldSearch().sendKeys("EPAM" + Keys.ENTER);
-        webPageObject.getResultSearch().click();
-        assert ((WebDriver) getDriver()).getTitle().contains("epam");
+        Assert.assertTrue(webPageObject.resultContainsText("EPAM"));
     }
-
 }
