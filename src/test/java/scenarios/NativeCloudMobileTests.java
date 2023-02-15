@@ -13,7 +13,7 @@ public class NativeCloudMobileTests extends BaseTest {
     public static String password = RandomStringUtils.random(8,true,true);
 
     @Parameters("platformName")
-    @Test(groups = "native", description = "Check correct registration in app", priority = 1)
+    @Test(groups = "native", description = "Check correct registration in app")
     public void registrationCloudMobileTest(String platformName) throws NoSuchFieldException, IllegalAccessException, InstantiationException {
         getPo().getWebElement("registerButton").click();
         if (Objects.equals(platformName, "iOs")) {
@@ -29,10 +29,8 @@ public class NativeCloudMobileTests extends BaseTest {
         getPo().getWebElement("confirmRegistrationPassword").sendKeys(password);
         if (Objects.equals(platformName, "iOs")) {
             getPo().getWebElement("aggrementButton").click();
-//            getPo().getWebElement("registerNewAccButton").click();
         }
         getPo().getWebElement("registerNewAccButton").click();
-//        Assert.assertTrue(getPo().getWebElement("registerButton").isDisplayed());
         Assert.assertEquals(getPo().getWebElement("frameLayout").getText(), "EPAM Test App");
         getPo().getWebElement("loginUserName").sendKeys(email);
         getPo().getWebElement("loginPassword").sendKeys(password);
