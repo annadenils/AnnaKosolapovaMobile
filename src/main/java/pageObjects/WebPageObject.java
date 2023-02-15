@@ -19,6 +19,11 @@ public class WebPageObject  {
     @FindBy(xpath = "//*[@id='rso']/*")
     private List<WebElement> resultSearch;
 
+    @FindBy(xpath = "//button[@id='KByQx']")
+    public WebElement downPopUpButton;
+    @FindBy(xpath = "//button[@id='L2AGLb']")
+    public WebElement cookiesButton;
+
     public WebElement getFieldSearch() {
         return fieldSearch;
     }

@@ -8,21 +8,29 @@
     <artifactId>mobileTaTrainingV2</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <java-client.version>7.3.0</java-client.version>
+        <testng.version>7.1.0</testng.version>
+        <assertj-core.version>3.22.0</assertj-core.version>
+        <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
+        <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
-            <version>7.3.0</version>
+            <version>${java-client.version}</version>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.1.0</version>
+            <version>${testng.version}</version>
         </dependency>
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>3.22.0</version>
+            <version>${assertj-core.version}</version>
         </dependency>
     </dependencies>
 
@@ -31,20 +39,20 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M7</version>
+                <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <suiteXmlFiles>
                         <suiteXmlFile>${suite.file}</suiteXmlFile>
                     </suiteXmlFiles>
-                    <systemPropertyVariables>
-                        <ts.appium>http://localhost:4723/wd/hub</ts.appium>
-                    </systemPropertyVariables>
+<!--                    <systemPropertyVariables>-->
+<!--                        <ts.appium>https://EPM-TSTF:{mobitruToken}@app.mobitru.com/wd/hub</ts.appium>-->
+<!--                    </systemPropertyVariables>-->
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.10.1</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
                     <source>11</source>
                     <target>11</target>
@@ -67,13 +75,48 @@
         <profile>
             <id>web</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.file>./src/test/resources/webTNG.xml</suite.file>
             </properties>
         </profile>
+        <profile>
+            <id>cloudNativeAndroid</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>./src/test/resources/cloudNativeAndroid.xml</suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>cloudNativeiOs</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>./src/test/resources/cloudNativeiOs.xml</suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>cloudWebAndroid</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>./src/test/resources/cloudWebAndroid.xml</suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>cloudWebiOs</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>./src/test/resources/cloudWebiOs.xml</suite.file>
+            </properties>
+        </profile>
     </profiles>
-
 
 </project>
