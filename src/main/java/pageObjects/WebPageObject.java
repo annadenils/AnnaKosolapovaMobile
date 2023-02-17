@@ -1,6 +1,7 @@
 package pageObjects;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -16,21 +17,14 @@ public class WebPageObject  {
     @FindBy(xpath = "//input[@name='q']")
     public WebElement fieldSearch;
 
-    @FindBy(xpath = "//*[@id='rso']/*")
+    @FindBy(css = "div[id='rso'] div[role='heading'][aria-level='3']")
     private List<WebElement> resultSearch;
 
     public WebElement getFieldSearch() {
         return fieldSearch;
     }
 
-    public boolean resultContainsText(String search) {
-        for (WebElement result : resultSearch) {
-            String text = result.getText();
-            if (text.contains(search)) {
-                return true;
-            }
-        }
-        return false;
+    public List<WebElement> getResultSearch() {
+        return resultSearch;
     }
-
 }
