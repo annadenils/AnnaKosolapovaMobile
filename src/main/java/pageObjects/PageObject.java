@@ -3,7 +3,6 @@ package pageObjects;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 import setup.IPageObject;
-
 import java.lang.reflect.Field;
 
 public class PageObject implements IPageObject {
@@ -27,7 +26,7 @@ public class PageObject implements IPageObject {
 
 
     @Override
-    public WebElement getWelement(String weName) throws NoSuchFieldException, IllegalAccessException {
+    public WebElement getWebElement(String weName) throws NoSuchFieldException, IllegalAccessException {
         // use reflection technique
         Field field = somePageObject.getClass().getDeclaredField(weName);
         field.setAccessible(true);
