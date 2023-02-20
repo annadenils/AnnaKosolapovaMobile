@@ -16,7 +16,7 @@ public class WebPageObject  {
     @FindBy(xpath = "//input[@name='q']")
     public WebElement fieldSearch;
 
-    @FindBy(xpath = "//*[@id='rso']/*")
+    @FindBy(css = "div[id='rso'] div[role='heading'][aria-level='3']")
     private List<WebElement> resultSearch;
 
     @FindBy(xpath = "//button[@id='KByQx']")
@@ -28,14 +28,8 @@ public class WebPageObject  {
         return fieldSearch;
     }
 
-    public boolean resultContainsText(String search) {
-        for (WebElement result : resultSearch) {
-            String text = result.getText();
-            if (text.contains(search)) {
-                return true;
-            }
-        }
-        return false;
+    public List<WebElement> getResultSearch() {
+        return resultSearch;
     }
 
 }

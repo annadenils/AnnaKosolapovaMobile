@@ -71,7 +71,7 @@ public class BaseTest implements IDriver {
         // Capabilities for tests of iOs native app on Cloud
         capabilities.setCapability("bundleId", bundleId);
 
-        String mobitruToken = System.getenv("token");
+        String mobitruToken = System.getProperty("token");
         String token = URLEncoder.encode(mobitruToken, StandardCharsets.UTF_8.name());
 
         try {

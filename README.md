@@ -10,7 +10,7 @@ homework1
 email; userName; password
 
 homework2
-Перед запуском тестов следует получить токен на Mobitru и внести его в конфигурацию maven параметром token
+Перед запуском тестов следует получить токен на Mobitru и внести его в конфигурацию maven параметром token в pom.xml
 Условия для запуска автотеста NativeCloudMobileTest:
 - запустить устройство и установить на него EPAMTestApp.apk (для Android) или EPAMTestApp.li (для iOs)
 - внести в xml файл cloudNativeAndroid название устройства в параметр deviceName (для Android)

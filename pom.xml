@@ -14,6 +14,7 @@
         <assertj-core.version>3.22.0</assertj-core.version>
         <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
         <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+        <token></token>
     </properties>
 
     <dependencies>
@@ -44,9 +45,9 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>${suite.file}</suiteXmlFile>
                     </suiteXmlFiles>
-<!--                    <systemPropertyVariables>-->
-<!--                        <ts.appium>https://EPM-TSTF:{mobitruToken}@app.mobitru.com/wd/hub</ts.appium>-->
-<!--                    </systemPropertyVariables>-->
+                    <systemPropertyVariables>
+                        <token>${token}</token>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
             <plugin>
